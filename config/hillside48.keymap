@@ -68,7 +68,7 @@
             bindings = <
 &none  &none  &none  &none  &none  &kp ASTERISK                              &kp PLUS   &mt F7 KP_NUMBER_7  &mt F8 KP_NUMBER_8  &mt F9 KP_NUMBER_9  &none  &none
 &none  &none  &none  &none  &none  &kp FSLH                                  &kp MINUS  &mt F4 KP_NUMBER_4  &mt F5 KP_NUMBER_5  &mt F6 KP_NUMBER_6  &none  &kp ENTER
-&none  &none  &none  &none  &none  &kp EQUAL     &to 0                &sl 3  &kp COMMA  &mt F1 KP_NUMBER_1  &mt F2 KP_NUMBER_2  &mt F3 KP_NUMBER_3  &none  &none
+&none  &none  &none  &none  &none  &kp EQUAL     &to 0                &to 3  &kp COMMA  &mt F1 KP_NUMBER_1  &mt F2 KP_NUMBER_2  &mt F3 KP_NUMBER_3  &none  &none
               &none         &none  &none         &none  &none  &none  &none  &none      &kp KP_NUMBER_0                         &sys_reset
             >;
         };
