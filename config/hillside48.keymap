@@ -26,7 +26,7 @@
         macPrint: macPrint {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(NUMBER_3)>;
+            bindings = <&kp LG(LS(X))>;
             label = "MACPRINT";
         };
     };
@@ -52,15 +52,15 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp K_REDO K_UNDO>;
+                <&inc_dec_kp C_FAST_FORWARD C_REWIND>;
         };
 
         symbol_layer {
             bindings = <
-&kp ESCAPE  &mt KP_NUMBER_1 EXCLAMATION  &mt KP_NUMBER_2 NUMBER_2  &mt KP_NUMBER_3 HASH  &mt KP_NUMBER_4 DOLLAR  &mt KP_NUMBER_5 PERCENT                                          &mt KP_NUMBER_6 CARET  &mt KP_NUMBER_7 AMPERSAND  &mt KP_NUMBER_8 ASTERISK     &mt KP_NUMBER_9 LEFT_PARENTHESIS  &mt KP_NUMBER_0 RIGHT_PARENTHESIS  &mt UNDERSCORE MINUS
-&trans      &trans                       &trans                    &trans                &trans                  &trans                                                           &trans                 &trans                     &mt LEFT_BRACE LEFT_BRACKET  &mt RIGHT_BRACE RIGHT_BRACKET     &mt COLON SEMICOLON                &mt PIPE NON_US_BACKSLASH
-&trans      &trans                       &trans                    &trans                &trans                  &trans                   &trans                  &trans          &kp UP_ARROW           &trans                     &trans                       &trans                            &trans                             &trans
-                                         &trans                                          &trans                  &trans                   &trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN               &kp RIGHT                                               &trans
+&kp ESCAPE  &mt EXCL KP_NUMBER_1  &mt AT KP_NUMBER_2  &mt HASH KP_NUMBER_3  &mt DOLLAR KP_NUMBER_4  &mt PERCENT KP_NUMBER_5                                          &mt CARET KP_NUMBER_6  &mt AMPERSAND KP_NUMBER_7  &mt ASTERISK KP_NUMBER_8     &mt LEFT_PARENTHESIS KP_NUMBER_9  &mt RIGHT_PARENTHESIS KP_NUMBER_0  &mt UNDERSCORE MINUS
+&trans      &trans                &trans              &trans                &trans                  &trans                                                           &trans                 &trans                     &mt LEFT_BRACE LEFT_BRACKET  &mt RIGHT_BRACE RIGHT_BRACKET     &mt COLON SEMICOLON                &mt PIPE NON_US_BACKSLASH
+&trans      &trans                &trans              &trans                &trans                  &trans                   &trans                  &trans          &kp UP_ARROW           &trans                     &trans                       &trans                            &trans                             &trans
+                                  &trans                                    &trans                  &trans                   &trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN               &kp RIGHT                                               &trans
             >;
         };
 
@@ -83,10 +83,10 @@
  */
 
             bindings = <
-&none        &to 0         &trans        &trans        &none         &none                                             &none   &kp PRINTSCREEN  &none  &ext_power EP_OFF  &ext_power EP_ON  &none
-&none        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                      &none   &none            &none  &none              &none             &none
-&bootloader  &sys_reset    &none         &out OUT_USB  &out OUT_BLE  &none         &bt BT_CLR                  &none   &none   &none            &none  &none              &none             &trans
-                           &trans                      &trans        &trans        &trans      &trans  &trans  &trans  &trans  &trans                  &kp RCTRL
+&bootloader  &to 0         &trans        &trans        &none         &none                                                  &none   &kp PRINTSCREEN  &none  &ext_power EP_OFF  &ext_power EP_ON  &none
+&none        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                           &none   &none            &none  &none              &none             &none
+&bootloader  &sys_reset    &none         &out OUT_USB  &out OUT_BLE  &none         &bt BT_CLR                  &bootloader  &none   &none            &none  &none              &none             &trans
+                           &trans                      &trans        &trans        &trans      &trans  &trans  &trans       &trans  &trans                  &kp RCTRL
             >;
         };
     };
