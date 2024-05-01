@@ -41,7 +41,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        mac_layer {
             /* QWERTY
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | `     |   Q   |   W   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
@@ -51,10 +51,10 @@
  */
 
             bindings = <
-&kp GRAVE                &kp Q  &kp W             &kp E  &kp R             &kp T                                                   &kp Y     &kp U      &kp I      &kp O           &kp P      &kp BSPC
-&kp TAB                  &kp A  &kp S             &kp D  &kp F             &kp G                                                   &kp H     &kp J      &kp K      &kp L           &kp SQT    &kp ENTER
-&mt LEFT_SHIFT CAPSLOCK  &kp Z  &kp X             &kp C  &kp V             &kp B     &mo 1                               &tog 2    &kp N     &kp M      &kp COMMA  &kp DOT         &kp SLASH  &kp RSHFT
-                                &kp C_PLAY_PAUSE         &kp LEFT_CONTROL  &kp LALT  &kp LEFT_GUI  &kp SPACE  &kp SPACE  &kp RGUI  &kp LALT  &kp GLOBE             &kp LG(LS(N5))
+&kp GRAVE       &kp Q  &kp W             &kp E  &kp R             &kp T                                                   &kp Y     &kp U      &kp I      &kp O           &kp P      &kp BSPC
+&kp TAB         &kp A  &kp S             &kp D  &kp F             &kp G                                                   &kp H     &kp J      &kp K      &kp L           &kp SQT    &kp ENTER
+&kp LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B     &mo 1                               &tog 2    &kp N     &kp M      &kp COMMA  &kp DOT         &kp SLASH  &kp RSHFT
+                       &kp C_PLAY_PAUSE         &kp LEFT_CONTROL  &kp LALT  &kp LEFT_GUI  &kp SPACE  &kp SPACE  &kp RGUI  &kp LALT  &kp GLOBE             &kp LG(LS(N5))
             >;
 
             sensor-bindings =
@@ -62,21 +62,21 @@
                 <&inc_dec_kp C_NEXT C_PREVIOUS>;
         };
 
-        symbol_layer {
+        macSymbol_layer {
             bindings = <
 &kp ESCAPE  &mt EXCL KP_NUMBER_1  &mt AT KP_NUMBER_2  &mt HASH KP_NUMBER_3  &mt DOLLAR KP_NUMBER_4  &mt PERCENT KP_NUMBER_5                                                &mt CARET KP_NUMBER_6  &mt AMPERSAND KP_NUMBER_7  &mt ASTERISK KP_NUMBER_8     &mt LEFT_PARENTHESIS KP_NUMBER_9  &mt RIGHT_PARENTHESIS KP_NUMBER_0  &mt UNDERSCORE MINUS
 &none       &none                 &none               &none                 &none                   &none                                                                  &none                  &none                      &mt LEFT_BRACE LEFT_BRACKET  &mt RIGHT_BRACE RIGHT_BRACKET     &mt COLON SEMICOLON                &mt PIPE NON_US_BACKSLASH
-&none       &none                 &none               &none                 &none                   &none                    &none                         &kp UP_ARROW    &none                  &none                      &none                        &none                             &none                              &none
+&none       &none                 &none               &none                 &none                   &kp LG(LC(Q))            &none                         &kp UP_ARROW    &none                  &none                      &none                        &none                             &none                              &none
                                   &kp LG(LA(ESCAPE))                        &none                   &none                    &none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT              &none                                                   &flamePrint
             >;
         };
 
         calculator_layer {
             bindings = <
-&none  &none  &none  &none  &none  &kp ASTERISK                              &kp PLUS   &mt F7 KP_NUMBER_7  &mt F8 KP_NUMBER_8  &mt F9 KP_NUMBER_9  &none  &none
-&none  &none  &none  &none  &none  &kp FSLH                                  &kp MINUS  &mt F4 KP_NUMBER_4  &mt F5 KP_NUMBER_5  &mt F6 KP_NUMBER_6  &none  &kp ENTER
-&none  &none  &none  &none  &none  &kp EQUAL     &to 0                &to 3  &kp COMMA  &mt F1 KP_NUMBER_1  &mt F2 KP_NUMBER_2  &mt F3 KP_NUMBER_3  &none  &none
-              &none         &none  &none         &none  &none  &none  &none  &none      &kp KP_NUMBER_0                         &sys_reset
+&none  &none  &none  &none  &kp PERCENT  &kp ASTERISK                              &kp PLUS   &mt F7 KP_NUMBER_7  &mt F8 KP_NUMBER_8  &mt F9 KP_NUMBER_9  &none  &kp BACKSPACE
+&none  &none  &none  &none  &none        &kp FSLH                                  &kp MINUS  &mt F4 KP_NUMBER_4  &mt F5 KP_NUMBER_5  &mt F6 KP_NUMBER_6  &none  &kp ENTER
+&none  &none  &none  &none  &none        &kp EQUAL     &to 0                &to 3  &kp COMMA  &mt F1 KP_NUMBER_1  &mt F2 KP_NUMBER_2  &mt F3 KP_NUMBER_3  &none  &none
+              &none         &none        &none         &to 4  &none  &none  &none  &none      &kp KP_NUMBER_0                         &sys_reset
             >;
         };
 
@@ -93,8 +93,41 @@
 &bootloader  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_CLR    &none                              &none  &none  &none  &ext_power EP_OFF  &ext_power EP_ON  &bootloader
 &none        &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &none         &none                              &none  &none  &none  &none              &none             &none
 &none        &none          &none          &out OUT_USB   &out OUT_BLE  &none  &to 0                &none  &none  &none  &none  &none              &none             &none
-                            &sys_reset                    &none         &none  &none  &none  &none  &none  &none  &none         &sys_reset
+                            &sys_reset                    &none         &none  &none  &none  &none  &to 4  &none  &none         &sys_reset
             >;
+        };
+
+        win_layer {
+            bindings = <
+&kp GRAVE       &kp Q  &kp W             &kp E  &kp R             &kp T                                                   &kp Y     &kp U      &kp I      &kp O          &kp P      &kp BSPC
+&kp TAB         &kp A  &kp S             &kp D  &kp F             &kp G                                                   &kp H     &kp J      &kp K      &kp L          &kp SQT    &kp ENTER
+&kp LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B     &mo 5                               &tog 6    &kp N     &kp M      &kp COMMA  &kp DOT        &kp SLASH  &kp RSHFT
+                       &kp C_PLAY_PAUSE         &kp LEFT_CONTROL  &kp LALT  &kp LEFT_GUI  &kp SPACE  &kp SPACE  &kp RGUI  &kp LALT  &kp GLOBE             &kp LG(LS(S))
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp C_NEXT C_PREVIOUS>;
+        };
+
+        winSymbol_layer {
+            bindings = <
+&kp ESCAPE  &mt EXCL KP_NUMBER_1  &mt AT KP_NUMBER_2  &mt HASH KP_NUMBER_3  &mt DOLLAR KP_NUMBER_4  &mt PERCENT KP_NUMBER_5                                                &mt CARET KP_NUMBER_6  &mt AMPERSAND KP_NUMBER_7  &mt ASTERISK KP_NUMBER_8     &mt LEFT_PARENTHESIS KP_NUMBER_9  &mt RIGHT_PARENTHESIS KP_NUMBER_0  &mt UNDERSCORE MINUS
+&none       &none                 &none               &none                 &none                   &none                                                                  &none                  &none                      &mt LEFT_BRACE LEFT_BRACKET  &mt RIGHT_BRACE RIGHT_BRACKET     &mt COLON SEMICOLON                &mt PIPE NON_US_BACKSLASH
+&none       &none                 &none               &none                 &none                   &kp LG(L)                &none                         &kp UP_ARROW    &none                  &none                      &none                        &none                             &none                              &none
+                                  &kp LC(LA(DEL))                           &none                   &none                    &none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT              &none                                                   &flamePrint
+            >;
+        };
+
+        buttonBox_layer {
+            bindings = <
+&kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6                               &kp  &kp  &kp  &kp  &kp  &kp
+&kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &kp F11                              &kp  &kp  &kp  &kp  &kp  &kp
+&kp F12  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18                &kp  &kp  &kp  &kp  &kp  &kp  &kp
+                  &to 4             &kp F20  &kp F21  &kp F22  &kp F23  &kp  &kp  &kp  &kp       &kp
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
     };
 };
