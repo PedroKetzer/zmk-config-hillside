@@ -111,10 +111,10 @@
 
         buttonBox_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                    &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
-&trans  &trans  &trans  &trans  &trans  &trans                                    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                   &kp F19  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18
-                &to 0           &trans  &trans  &trans  &trans  &kp F20  &kp F21  &kp F22  &kp F23           &to 4
+&trans  &trans  &trans  &trans  &trans  &trans                                                &kp F1            &kp F2            &kp F3            &kp F4      &kp F5            &kp F6
+&trans  &trans  &trans  &trans  &trans  &trans                                                &kp F7            &kp F8            &kp F9            &kp F10     &kp F11           &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                      &mt F19 NUMBER_1  &mt F13 NUMBER_2  &mt F14 NUMBER_3  &mt F15 NUMBER_4  &mt F16 N5  &mt F17 NUMBER_6  &mt F18 N7
+                &to 0           &trans  &trans  &trans  &trans  &mt F20 N8  &mt F21 N9        &mt F22 N0        &kp F23                             &to 4
             >;
 
             sensor-bindings =
