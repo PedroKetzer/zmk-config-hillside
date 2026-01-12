@@ -26,6 +26,7 @@ include:
 #   New board name added for 2025
   - board: nice_nano
     shield: hillside48_left
+    snippet: studio-rpc-usb-uart
   - board: nice_nano
     shield: hillside48_right
 
