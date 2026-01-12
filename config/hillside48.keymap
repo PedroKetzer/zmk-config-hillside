@@ -39,16 +39,6 @@
 
     behaviors {
         // Optimization for rapid writing
-        mt: mod_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
-            display-name = "Mod-Tap";
-        };
     };
 
     keymap {
@@ -64,10 +54,10 @@
  */
 
             bindings = <
-&kp GRAVE       &kp Q  &kp W             &kp E  &kp R             &kp T                                                   &kp Y     &kp U      &kp I      &kp O           &kp P      &kp BSPC
-&kp TAB         &kp A  &kp S             &kp D  &kp F             &kp G                                                   &kp H     &kp J      &kp K      &kp L           &kp SQT    &kp ENTER
-&kp LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B     &mo 1                               &to 2     &kp N     &kp M      &kp COMMA  &kp DOT         &kp SLASH  &kp RSHFT
-                       &kp C_PLAY_PAUSE         &kp LEFT_CONTROL  &kp LALT  &kp LEFT_GUI  &kp SPACE  &kp SPACE  &kp RGUI  &kp LALT  &kp GLOBE             &kp LG(LS(N5))
+&mt ESC GRAVE   &kp Q  &kp W             &kp E  &kp R             &kp T                                                   &kp Y        &kp U       &kp I               &kp O                &kp P              &kp BSPC
+&kp TAB         &kp A  &kp S             &kp D  &kp F             &kp G                                                   &mt EQUAL H  &mt HOME J  &mt LEFT_BRACKET K  &mt RIGHT_BRACKET L  &mt SEMICOLON SQT  &mt NON_US_BACKSLASH ENTER
+&kp LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B     &mo 1                               &to 2     &kp N        &mt END M   &kp COMMA           &kp DOT              &kp SLASH          &kp RSHFT
+                       &kp C_PLAY_PAUSE         &kp LEFT_CONTROL  &kp LALT  &kp LEFT_GUI  &kp SPACE  &kp SPACE  &kp RGUI  &kp LALT     &kp GLOBE                       &kp LG(LS(N5))
             >;
 
             sensor-bindings =
@@ -77,10 +67,10 @@
 
         macSymbol_layer {
             bindings = <
-&kp ESCAPE  &mt EXCL NUMBER_1  &mt AT N2           &mt HASH N3  &mt DOLLAR N4  &mt PERCENT N5                                                &mt CARET N6  &mt AMPERSAND N7  &mt ASTERISK N8              &mt LEFT_PARENTHESIS N9        &mt RIGHT_PARENTHESIS N0  &mt UNDERSCORE MINUS
-&none       &none              &none               &none        &none          &none                                                         &kp EQUAL     &none             &mt LEFT_BRACE LEFT_BRACKET  &mt RIGHT_BRACE RIGHT_BRACKET  &mt COLON SEMICOLON       &mt PIPE BACKSLASH
-&none       &none              &none               &none        &none          &kp LG(LC(Q))   &none                         &kp UP_ARROW    &none         &none             &none                        &none                          &none                     &none
-                               &kp LG(LA(ESCAPE))               &none          &none           &none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT     &none                                          &flamePrint
+&kp ESCAPE  &mt EXCL NUMBER_1  &mt AT N2           &mt HASH N3  &mt DOLLAR N4  &mt PERCENT N5                                                &mt CARET N6  &mt AMPERSAND N7  &mt ASTERISK N8  &mt LEFT_PARENTHESIS N9  &mt RIGHT_PARENTHESIS N0  &mt UNDERSCORE MINUS
+&none       &none              &none               &none        &none          &none                                                         &none         &none             &none            &none                    &none                     &none
+&none       &none              &none               &none        &none          &kp LG(LC(Q))   &none                         &kp UP_ARROW    &none         &none             &none            &none                    &none                     &none
+                               &kp LG(LA(ESCAPE))               &none          &none           &none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT     &none                              &flamePrint
             >;
         };
 
@@ -103,19 +93,19 @@
  */
 
             bindings = <
-&bootloader  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_CLR    &studio_unlock                              &studio_unlock  &bt BT_CLR    &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0   &bootloader
-&none        &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &none         &none                                       &none           &none         &bt BT_DISC 2  &bt BT_DISC 1  &bt BT_DISC 0  &none
-&none        &none          &none          &out OUT_USB   &out OUT_BLE  &none           &to 0                &none  &none           &out OUT_BLE  &out OUT_USB   &none          &none          &none
-                            &sys_reset                    &none         &none           &none  &none  &none  &to 4  &none           &none                        &sys_reset
+&bootloader  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_CLR    &studio_unlock                              &soft_off  &bt BT_CLR    &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0   &bootloader
+&none        &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &none         &none                                       &none      &none         &bt BT_DISC 2  &bt BT_DISC 1  &bt BT_DISC 0  &none
+&none        &none          &none          &out OUT_USB   &out OUT_BLE  &none           &to 0                &to 4  &none      &out OUT_BLE  &out OUT_USB   &none          &none          &none
+                            &sys_reset                    &none         &none           &none  &none  &none  &none  &none      &none                        &sys_reset
             >;
         };
 
         win_layer {
             bindings = <
-&kp GRAVE       &kp Q  &kp W             &kp E  &kp R             &kp T                                                   &kp Y     &kp U      &kp I      &kp O          &kp P      &kp BSPC
-&kp TAB         &kp A  &kp S             &kp D  &kp F             &kp G                                                   &kp H     &kp J      &kp K      &kp L          &kp SQT    &kp ENTER
-&kp LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B     &mo 5                               &to 3     &kp N     &kp M      &kp COMMA  &kp DOT        &kp SLASH  &kp RSHFT
-                       &kp C_PLAY_PAUSE         &kp LEFT_CONTROL  &kp LALT  &kp LEFT_GUI  &kp SPACE  &kp SPACE  &kp RGUI  &kp LALT  &kp GLOBE             &kp LG(LS(S))
+&mt ESC GRAVE   &kp Q  &kp W             &kp E  &kp R             &kp T                                                   &kp Y        &kp U       &kp I               &kp O                &kp P              &kp BSPC
+&kp TAB         &kp A  &kp S             &kp D  &kp F             &kp G                                                   &mt EQUAL H  &mt HOME J  &mt LEFT_BRACKET K  &mt RIGHT_BRACKET L  &mt SEMICOLON SQT  &mt NON_US_BACKSLASH ENTER
+&kp LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B     &mo 5                               &to 2     &kp N        &mt END M   &kp COMMA           &kp DOT              &kp SLASH          &kp RSHFT
+                       &kp C_PLAY_PAUSE         &kp LEFT_CONTROL  &kp LALT  &kp LEFT_GUI  &kp SPACE  &kp SPACE  &kp RGUI  &kp LALT     &kp GLOBE                       &kp LG(LS(S))
             >;
 
             sensor-bindings =
