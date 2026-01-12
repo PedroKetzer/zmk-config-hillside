@@ -5,11 +5,19 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
+// Vibe-coded reference for the ZMK Studio support
+
+include "hillside48-layouts.dtsi"
+
+&hillside48_physical_layout {
+    transform = <&default_transform>;
+};
 
 / {
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
+        zmk,physical-layout = &hillside48_physical_layout;
     };
 
     default_transform: keymap_transform_0 {
