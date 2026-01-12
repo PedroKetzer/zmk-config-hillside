@@ -7,7 +7,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 // Vibe-coded reference for the ZMK Studio support
 
-include "hillside48-layouts.dtsi"
+#include "hillside48-layouts.dtsi"
 
 &hillside48_physical_layout {
     transform = <&default_transform>;
