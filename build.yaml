@@ -24,9 +24,9 @@ include:
 # Hillside 48
 #   Comment out below if you do not have this board, to save build time
 #   New board name added for 2025
-  - board: nice_nano@2.0.0
+  - board: nice_nano
     shield: hillside48_left
-  - board: nice_nano@2.0.0
+  - board: nice_nano
     shield: hillside48_right
 
 # Hillside 52
